@@ -27,7 +27,7 @@ function Car(x, y) {
 
   this.accelerate = function() {
     if (!(this.rpm > 6100)) {
-      this.rpm += dt * this.force * 5;
+      this.rpm += dt * this.force * 15;
     }
     this.EngineForce = findTorque(this.rpm);
   }
@@ -52,7 +52,7 @@ function Car(x, y) {
     this.F_drag = p5.Vector.mult(
       this.dir, this.speed * (-this.C_drag))
     this.F_roll = p5.Vector.mult(
-      this.dir, this.C_roll)
+      this.dir, -this.C_roll)
 
     this.sum.add(this.F_traction.mult(100))
     this.sum.add(this.F_drag)
